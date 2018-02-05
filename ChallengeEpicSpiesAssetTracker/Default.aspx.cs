@@ -15,7 +15,7 @@ namespace ChallengeEpicSpiesAssetTracker
             {
                 string[] assetsArray = new string[0];
                 int[] electionsArray = new int[0];
-                int[] subterfugeArray = new int[0];
+                double[] subterfugeArray = new double[0];
                 ViewState.Add("Assets", assetsArray);
                 ViewState.Add("Elections", electionsArray);
                 ViewState.Add("Subterfuge", subterfugeArray);
@@ -27,7 +27,7 @@ namespace ChallengeEpicSpiesAssetTracker
         {
             string[] assets = (String[])ViewState["Assets"];
             int[] elections = (int[])ViewState["Elections"];
-            int[] subterfuge = (int[])ViewState["Subterfuge"];
+            double[] subterfuge = (double[])ViewState["Subterfuge"];
 
             int arrayLength = assets.Length + 1;
 
@@ -39,11 +39,11 @@ namespace ChallengeEpicSpiesAssetTracker
 
             assets[newIndex] = assetNameTextBox.Text;
             elections[newIndex] = int.Parse(electionsRiggedTextBox.Text);
-            subterfuge[newIndex] = int.Parse(actsOfSubterfugeTextBox.Text);
+            subterfuge[newIndex] = double.Parse(actsOfSubterfugeTextBox.Text);
 
             ViewState["Assets"] = assets;
             ViewState["Elections"] = elections;
-            ViewState["Acts"] = subterfuge;
+            ViewState["Subterfuge"] = subterfuge;
 
             resultLabel.Text = string.Format("Total Elections Rigged: {0} <br/>" +
             "Average Acts of Subterfuge per Asset: {1:N2}<br/>" +
